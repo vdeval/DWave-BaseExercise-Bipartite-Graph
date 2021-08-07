@@ -5,23 +5,15 @@
 # A graph is bipartite if and only if it is possible to assign one of two different colors
 # to each vertex of the graph so that no two adjacent vertices are assigned the same color.
 #
-# Given: G = {V={Vi}, E={Ei}}
+# Description:
+# 
+# This program implements the analysis of a graph to determine whether it is bipartite or not.
+# It applies the algorithm on a fixed set of graphs, two of them being bipartite and one not.
+# It creates a couple of images for each graph: original graph and bipartite graph (according to
+# the best solution found by the solver)
 #
-# Goal: find, if exists, a partition of V in two subset corresponding to the bipartite graph
-#
-# Implementation principles:
-# 1 - Build a QUBO graph with variables "x" corresponding to vertices of the graph.
-# 2 - Connected vertices of the graph corresponding to connected vertex in the QUBO (quadratic terms).
-# 3 - For each variable "x", value 0 corresponds to one color, value 1 corresponds to the other.
-# 4 - The constraint for two adjacent vetices (x1 and x2) having different colors is implemented by:
-#         - x1 - x2 + 2x1x2 + 1
-# 5 - Apply the constraint to all the pairs of connected vertices and sum up all the values for
-#     linear terms.
-#     Note: As the constant "-1" is not added to the QUBO, the minimum energy will not be zero
-#           but "-n" where n is the numebr of edges {Ei}
-# 6 - Input the graph to a sampler. If the graph is bipartite there are at least two solutions
-#     (symmetric between them) with energy "-n", and the values of the "x" define how to assign
-#     colors to each vertex.
+# Dependencies:
+#     MyGraph.py library
 ###################################################################################################
 
 # ------- Import Section -------
