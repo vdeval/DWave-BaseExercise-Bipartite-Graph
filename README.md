@@ -13,7 +13,7 @@ Given: G = {V={Vi}, E={Ei}}
 
 Goal: find, if exists, a partition of V in two subset corresponding to the bipartite graph
 
-Implementation principles:
+## Implementation:
 1. Build a QUBO graph with variables "x" corresponding to vertices of the graph.
 1. Connected vertices of the graph correspond to connected vertices in the QUBO (quadratic terms).
 1. For each variable "x", value 0 corresponds to one color, value 1 corresponds to the other.
