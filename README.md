@@ -1,17 +1,15 @@
 # DWave-BaseExercise-Bipartite-Graph
-D-Wave project. Base Exercise: Bipartite Graph
-## Project Name
-Bipartite Graph
+D-Wave project. Base Exercise: **Bipartite Graph**
 ## Description
-Test program for checking if a graph is bipartite
-
-Problem: 
-
 A graph is bipartite if and only if it is possible to assign one of two different colors to each vertex of the graph so that no two adjacent vertices are assigned the same color.
+* **Given**: G = {V={Vi}, E={Ei}}
+* **Goal**: find, if exists, a partition of V in two subset corresponding to the bipartite graph
+## Solution:
+It is straigthforward to map the graph to be analyzed to a graph representation of a QUBO problem:
+* Each vertex corresponds to a QUBO variable.
+* Each edge is translated in a constraint between the two vertices (QUBO variables) of type "different values".
 
-Given: G = {V={Vi}, E={Ei}}
-
-Goal: find, if exists, a partition of V in two subset corresponding to the bipartite graph
+Processing all the edges and summing the constraint values for all of them in the QUBO Dictionary will create the overall constraint for the graph.
 
 ## Implementation:
 1. Build a QUBO graph with variables "x" corresponding to vertices of the graph.
